@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".GuiaActivity" >
         </activity>
+        <activity android:name=".IngresoActivity" >
+        </activity>
     </application>
 
 </manifest>

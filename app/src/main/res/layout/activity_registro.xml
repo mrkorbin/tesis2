@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrarse"
-        android:id="@+id/button"
+        android:id="@+id/buttonregistro"
         android:layout_marginBottom="55dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -60,49 +60,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Atras"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignRight="@+id/editText4"
-        android:layout_alignEnd="@+id/editText4" />
+        android:id="@+id/buttonatras"
+        android:layout_alignTop="@+id/buttonregistro"
+        android:layout_alignRight="@+id/editTextcorreo"
+        android:layout_alignEnd="@+id/editTextcorreo"
+        android:onClick="openLogActivity" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/editTextnombre"
         android:layout_alignBottom="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:layout_toRightOf="@+id/buttonregistro"
+        android:layout_toEndOf="@+id/buttonregistro" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/editTextusuario"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignRight="@+id/editTextnombre"
+        android:layout_alignEnd="@+id/editTextnombre"
+        android:layout_alignLeft="@+id/editTextnombre"
+        android:layout_alignStart="@+id/editTextnombre" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/editTextcontrasena"
         android:layout_alignBottom="@+id/textView3"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignRight="@+id/editTextusuario"
+        android:layout_alignEnd="@+id/editTextusuario"
+        android:layout_alignLeft="@+id/editTextusuario"
+        android:layout_alignStart="@+id/editTextusuario" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
+        android:id="@+id/editTextcorreo"
         android:layout_alignBottom="@+id/textView4"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_alignRight="@+id/editTextcontrasena"
+        android:layout_alignEnd="@+id/editTextcontrasena"
+        android:layout_alignLeft="@+id/editTextcontrasena"
+        android:layout_alignStart="@+id/editTextcontrasena" />
 
 </RelativeLayout>

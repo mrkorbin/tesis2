@@ -14,7 +14,8 @@
         android:id="@+id/ini"
         android:layout_marginTop="92dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="openIngresoActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -26,5 +27,6 @@
         android:layout_alignStart="@+id/ini"
         android:layout_marginBottom="133dp"
         android:layout_alignRight="@+id/ini"
-        android:layout_alignEnd="@+id/ini" />
+        android:layout_alignEnd="@+id/ini"
+        android:onClick="openRegistroActivity" />
 </RelativeLayout>

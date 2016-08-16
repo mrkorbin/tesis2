@@ -13,7 +13,7 @@ public class LogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log);
     }
 
-
+    
 
     public void openRegistroActivity(View view) {
         Intent toregistroactivity = new Intent(getApplicationContext(), RegistroActivity.class);
@@ -27,5 +27,8 @@ public class LogActivity extends AppCompatActivity {
         startActivity(toIngresoActivity);
 
     }
+
+
+
 
 }

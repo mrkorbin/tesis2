@@ -20,13 +20,13 @@
         android:layout_height="wrap_content"
         android:text="Bicep"
         android:id="@+id/button7"
+        android:layout_marginTop="43dp"
+        android:onClick="openMuscSeleccActivity"
         android:layout_below="@+id/textView5"
-        android:layout_marginTop="34dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="openMuscSeleccActivity" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -56,10 +56,10 @@
         android:layout_height="wrap_content"
         android:text="Cuadricep"
         android:id="@+id/button10"
-        android:layout_marginTop="44dp"
         android:layout_below="@+id/button9"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

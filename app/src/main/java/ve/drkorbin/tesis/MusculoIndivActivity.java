@@ -25,4 +25,5 @@ public class MusculoIndivActivity extends AppCompatActivity {
 
     }
 
+
 }

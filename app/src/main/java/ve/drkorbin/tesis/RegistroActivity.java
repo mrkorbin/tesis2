@@ -1,7 +1,9 @@
 package ve.drkorbin.tesis;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -10,4 +12,22 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
     }
+
+
+    public void openLogActivity(View view) {
+        Intent toLogActivity = new Intent(getApplicationContext(), LogActivity.class);
+        startActivity(toLogActivity);
+
+    }
+
+    public void openPrincipalActivity(View view) {
+        Intent toPrincipalActivity = new Intent(getApplicationContext(), PrincipalActivity.class);
+        startActivity(toPrincipalActivity);
+
+    }
+
+//falta mensaje de error por usuario registrado
+
+
+
 }

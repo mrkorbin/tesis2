@@ -17,6 +17,14 @@ public class IngresoActivity extends AppCompatActivity {
         Intent toLogActivity = new Intent(getApplicationContext(), LogActivity.class);
         startActivity(toLogActivity);
 
-}
+    }
 
+
+    public void openPrincipalActivity(View view) {
+        Intent toPrincipalActivity = new Intent(getApplicationContext(), PrincipalActivity.class);
+        startActivity(toPrincipalActivity);
+
+    }
+
+    
 }

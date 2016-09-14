@@ -1,4 +1,4 @@
-package ve.drkorbin.tesis.Objetos;
+package ve.drkorbin.tesis.objetos;
 
 /**
  * Created by pepa on 15/08/2016.

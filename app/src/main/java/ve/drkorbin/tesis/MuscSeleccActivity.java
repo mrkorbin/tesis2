@@ -26,4 +26,5 @@ public class MuscSeleccActivity extends AppCompatActivity {
         startActivity(toMuscIndivActivity);
 
     }
+
 }

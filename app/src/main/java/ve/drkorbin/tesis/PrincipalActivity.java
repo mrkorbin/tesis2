@@ -20,4 +20,25 @@ public class PrincipalActivity extends AppCompatActivity {
 
     }
 
+    public void openRutinaPrincActivity(View view) {
+        Intent openRutinaPrincActivity = new Intent(getApplicationContext(), RutinaPrincipianteActivity.class);
+        startActivity(openRutinaPrincActivity);
+
+    }
+
+
+    public void openRutinaAvanzActivity(View view) {
+        Intent openRutinaAvanzActivity = new Intent(getApplicationContext(), RutinaAvanzadaActivity.class);
+        startActivity(openRutinaAvanzActivity);
+
+    }
+
+
+    public void openContactanosActivity(View view) {
+        Intent openContactanosActivity = new Intent(getApplicationContext(), ContactanosActivity.class);
+        startActivity(openContactanosActivity);
+
+    }
+
+
 }

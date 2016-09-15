@@ -9,4 +9,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ve.drkorbin.tesis.RutinaAvanzadaActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccione la Rutina Avanzada Seleccinada"
+        android:id="@+id/textView22"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atras"
+        android:id="@+id/button21"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="openPrincipalActivity" />
 </RelativeLayout>

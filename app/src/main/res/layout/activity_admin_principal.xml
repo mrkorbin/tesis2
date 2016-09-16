@@ -15,9 +15,12 @@
         android:text="Cargar Guia"
         android:id="@+id/button14Guia"
         android:layout_below="@+id/textView11"
-        android:layout_alignLeft="@+id/button15Guia"
-        android:layout_alignStart="@+id/button15Guia"
-        android:layout_marginTop="57dp" />
+        android:layout_marginTop="57dp"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11"
+        android:layout_alignLeft="@+id/button16guia"
+        android:layout_alignStart="@+id/button16guia"
+        android:onClick="openCargarGuiaActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,8 +28,12 @@
         android:text="Eliminar Guia"
         android:id="@+id/button15Guia"
         android:layout_below="@+id/button14Guia"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp" />
+        android:layout_marginTop="52dp"
+        android:layout_alignLeft="@+id/button16guia"
+        android:layout_alignStart="@+id/button16guia"
+        android:layout_alignRight="@+id/button16guia"
+        android:layout_alignEnd="@+id/button16guia"
+        android:onClick="openEliminarGuiaActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -36,7 +43,8 @@
         android:layout_below="@+id/button15Guia"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11"
-        android:layout_marginTop="49dp" />
+        android:layout_marginTop="49dp"
+        android:onClick="openEliminarUsuarioActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -44,9 +52,12 @@
         android:text="Salir"
         android:id="@+id/button17Guia"
         android:layout_below="@+id/button16guia"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp"
-        android:onClick="openLogActivity" />
+        android:onClick="openLogActivity"
+        android:layout_alignRight="@+id/button16guia"
+        android:layout_alignEnd="@+id/button16guia"
+        android:layout_alignLeft="@+id/button16guia"
+        android:layout_alignStart="@+id/button16guia" />
 
     <TextView
         android:layout_width="wrap_content"

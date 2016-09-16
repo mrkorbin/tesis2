@@ -18,4 +18,9 @@ public class CargarGuiaActivity extends AppCompatActivity {
         startActivity(toAdminPrincipalActivity);
 
     }
+
+
+    //al momento de presionar cargar, se debe mostrar un mensaje indicando que se ha cargado la guia o que ya la misma esta cargada y al salvar se debe volver al meuu de administrador
+
+
 }

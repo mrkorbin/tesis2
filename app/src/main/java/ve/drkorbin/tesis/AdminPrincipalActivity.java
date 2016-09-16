@@ -19,5 +19,26 @@ public class AdminPrincipalActivity extends AppCompatActivity {
 
     }
 
+    public void openCargarGuiaActivity(View view) {
+        Intent openCargarGuiaActivity = new Intent(getApplicationContext(), CargarGuiaActivity.class);
+        startActivity(openCargarGuiaActivity);
+
+    }
+
+    public void openEliminarGuiaActivity(View view) {
+        Intent openEliminarGuiaActivity = new Intent(getApplicationContext(), EliminarGuiaActivity.class);
+        startActivity(openEliminarGuiaActivity);
+
+    }
+
+
+    public void openEliminarUsuarioActivity(View view) {
+        Intent openEliminarUsuarioActivity = new Intent(getApplicationContext(), EliminarUsuarioActivity.class);
+        startActivity(openEliminarUsuarioActivity);
+
+    }
+
+
+
 
 }

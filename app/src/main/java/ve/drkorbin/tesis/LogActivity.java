@@ -13,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import ve.drkorbin.tesis.entities.User;
+import ve.drkorbin.tesis.persister.FireBasePersister;
 
 public class LogActivity extends AppCompatActivity {
 
@@ -24,42 +25,11 @@ public class LogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference mPostReference = database.getReference("clave");
 
-        // Read from the database
-        mPostReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
     }
 
-    /*ValueEventListener postListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            // Get Post object and use the values to update the UI
-            User user = dataSnapshot.getValue(User.class);
-            // ...
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-            // Getting Post failed, log a message
-            Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-            // ...
-        }
-    };
-    mPostReference.addValueEventListener(postListener);*/
 
     public void openRegistroActivity(View view) {
         Intent toregistroactivity = new Intent(getApplicationContext(), RegistroActivity.class);
@@ -69,6 +39,8 @@ public class LogActivity extends AppCompatActivity {
 
 
     public void openIngresoActivity(View view) {
+       /* FireBasePersister fireBasePersister = new FireBasePersister(this);
+        fireBasePersister.setUser(null);*/
         Intent toIngresoActivity = new Intent(getApplicationContext(), IngresoActivity.class);
         startActivity(toIngresoActivity);
 

@@ -5,23 +5,43 @@ package ve.drkorbin.tesis.entities;
  */
 public class User {
 
-    String user;
+    String userName;
+    String fullName;
     String password;
+    String email;
 
     public User() {
     }
 
-    public User(String user, String password) {
-        this.user = user;
+    public User(String userName, String fullName, String password, String email) {
+        this.userName = userName;
+        this.fullName = fullName;
         this.password = password;
+        this.email = email;
     }
 
-    public String getUser() {
-        return user;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {

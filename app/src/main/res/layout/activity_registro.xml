@@ -54,7 +54,8 @@
         android:id="@+id/buttonregistro"
         android:layout_alignTop="@+id/buttonatras"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="singUpUser" />
 
     <Button
         android:layout_width="wrap_content"
@@ -71,80 +72,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextnombre"
-        android:layout_alignBottom="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/buttonregistro"
-        android:layout_toEndOf="@+id/buttonregistro" />
+        android:layout_above="@+id/textView2"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_alignLeft="@+id/editTextusuario"
+        android:layout_alignStart="@+id/editTextusuario"
+        android:gravity="center|center_horizontal" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextusuario"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignRight="@+id/editTextnombre"
-        android:layout_alignEnd="@+id/editTextnombre"
-        android:layout_alignLeft="@+id/editTextnombre"
-        android:layout_alignStart="@+id/editTextnombre" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/buttonatras"
+        android:layout_toRightOf="@+id/buttonatras"
+        android:gravity="center|center_horizontal" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextcontrasena"
         android:layout_alignBottom="@+id/textView3"
-        android:layout_alignRight="@+id/editTextusuario"
-        android:layout_alignEnd="@+id/editTextusuario"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView"
         android:layout_alignLeft="@+id/editTextusuario"
-        android:layout_alignStart="@+id/editTextusuario" />
+        android:layout_alignStart="@+id/editTextusuario"
+        android:gravity="center|center_horizontal" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextcorreo"
         android:layout_alignBottom="@+id/textView4"
-        android:layout_alignRight="@+id/editTextcontrasena"
-        android:layout_alignEnd="@+id/editTextcontrasena"
-        android:layout_alignLeft="@+id/editTextcontrasena"
-        android:layout_alignStart="@+id/editTextcontrasena" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText8"
-        android:layout_alignTop="@+id/editTextnombre"
         android:layout_alignRight="@+id/buttonregistro"
         android:layout_alignEnd="@+id/buttonregistro"
-        android:layout_toEndOf="@+id/buttonatras"
-        android:layout_toRightOf="@+id/buttonatras" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText9"
-        android:layout_alignTop="@+id/editTextusuario"
-        android:layout_alignRight="@+id/editText8"
-        android:layout_alignEnd="@+id/editText8"
-        android:layout_toRightOf="@+id/buttonatras"
-        android:layout_toEndOf="@+id/buttonatras" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText10"
-        android:layout_alignTop="@+id/editTextcontrasena"
-        android:layout_alignRight="@+id/editText9"
-        android:layout_alignEnd="@+id/editText9"
-        android:layout_toRightOf="@+id/buttonatras"
-        android:layout_toEndOf="@+id/buttonatras" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText11"
-        android:layout_alignTop="@+id/editTextcorreo"
-        android:layout_alignRight="@+id/editText10"
-        android:layout_alignEnd="@+id/editText10"
-        android:layout_alignLeft="@+id/editText10"
-        android:layout_alignStart="@+id/editText10" />
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_alignLeft="@+id/editTextcontrasena"
+        android:layout_alignStart="@+id/editTextcontrasena"
+        android:gravity="center|center_horizontal" />
 
 </RelativeLayout>

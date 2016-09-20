@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.User;
 import ve.drkorbin.tesis.persister.FireBasePersister;
 
@@ -39,8 +40,15 @@ public class LogActivity extends AppCompatActivity {
 
 
     public void openIngresoActivity(View view) {
-       /* FireBasePersister fireBasePersister = new FireBasePersister(this);
-        fireBasePersister.setUser(null);*/
+        FireBasePersister fireBasePersister = new FireBasePersister(this);
+
+        Guide guide = new Guide();
+        guide.setTitulo("Prueba titulo");
+        guide.setDescripcion("Prueba Descripcion");
+        guide.setUrl("URL del video");
+        guide.setMusculo("Prueba Musculo");
+
+        fireBasePersister.createGuideInBd(guide);
         Intent toIngresoActivity = new Intent(getApplicationContext(), IngresoActivity.class);
         startActivity(toIngresoActivity);
 

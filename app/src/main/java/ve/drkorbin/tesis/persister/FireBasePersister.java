@@ -1,8 +1,6 @@
 package ve.drkorbin.tesis.persister;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,6 +11,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.User;
 
 /**
@@ -32,6 +34,9 @@ public class FireBasePersister {
 
     public FireBasePersister(AppCompatActivity activityFromCall) {
         this.activityFromCall = activityFromCall;
+        progressDialog = new ProgressDialog(activityFromCall);
+        progressDialog.setMessage("Cargando...");
+
     }
 
     public User validateAndRegister(final User user) {
@@ -54,8 +59,10 @@ public class FireBasePersister {
                                 userFound = true;
                             }
 
-                            if (userFound){
-                                Toast.makeText(activityFromCall,"Usuario en BD", Toast.LENGTH_LONG).show();
+                            if (userFound) {
+                                Toast.makeText(activityFromCall, "Usuario en BD", Toast.LENGTH_LONG).show();
+                            } else {
+                                dataSnapshot.getRef().child(user.getUserName()).setValue(user);
                             }
                             progressDialog.dismiss();
 
@@ -72,9 +79,49 @@ public class FireBasePersister {
         return userformBd;
     }
 
+    public List<Guide> getAllGuides(final Guide guide) {
+        progressDialog.show();
+        final User guideformBd = null;
+        final List<Guide> listGuides = new ArrayList<Guide>();
+
+        DatabaseReference referenceGuidesChild = database.getReference("guides");
+
+        referenceGuidesChild.addValueEventListener(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        boolean userFound = false;
+                        for (DataSnapshot data :
+                                dataSnapshot.getChildren()) {
+
+                            Guide guideInBd = data.getValue(Guide.class);
+                            listGuides.add(guideInBd);
+
+                            progressDialog.dismiss();
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.w(TAG, "validateAndRegister:onCancelled", databaseError.toException());
+                    }
+                });
+
+        progressDialog.dismiss();
+        return listGuides;
+    }
+
+    public void createGuideInBd(final Guide guide) {
+
+        final Guide guideformBd = null;
+
+        DatabaseReference referenceGuidesChild = database.getReference("guides");
+        referenceGuidesChild.child(guide.getTitulo()).setValue(guide);
+
+    }
+
     public void setUser(User user) {
-        progressDialog = new ProgressDialog(activityFromCall);
-        progressDialog.setMessage("Cargando");
         progressDialog.show();
 
         user = new User();

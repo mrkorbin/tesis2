@@ -79,10 +79,10 @@ public class FireBasePersister {
         return userformBd;
     }
 
-    public List<Guide> getAllGuides(final Guide guide) {
+    public void getAllGuides(final ArrayList<Guide> guideArrayList) {
         progressDialog.show();
         final User guideformBd = null;
-        final List<Guide> listGuides = new ArrayList<Guide>();
+        List<Guide> listGuides;
 
         DatabaseReference referenceGuidesChild = database.getReference("guides");
 
@@ -95,7 +95,7 @@ public class FireBasePersister {
                                 dataSnapshot.getChildren()) {
 
                             Guide guideInBd = data.getValue(Guide.class);
-                            listGuides.add(guideInBd);
+                            guideArrayList.add(guideInBd);
 
                             progressDialog.dismiss();
 
@@ -109,7 +109,7 @@ public class FireBasePersister {
                 });
 
         progressDialog.dismiss();
-        return listGuides;
+
     }
 
     public void createGuideInBd(final Guide guide) {

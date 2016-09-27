@@ -16,6 +16,7 @@ import java.util.List;
 
 import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.User;
+import ve.drkorbin.tesis.utils.FireBaseCallBack;
 
 /**
  * Created by parcka on 14/09/16.
@@ -79,7 +80,38 @@ public class FireBasePersister {
         return userformBd;
     }
 
-    public void getAllGuides(final ArrayList<Guide> guideArrayList) {
+    public void getAllGuides() {
+        final ArrayList<Guide> guideArrayList = new ArrayList<Guide>();
+        progressDialog.show();
+
+        DatabaseReference referenceGuidesChild = database.getReference("guides");
+
+        referenceGuidesChild.addValueEventListener(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot data :
+                                dataSnapshot.getChildren()) {
+
+                            Guide guideInBd = data.getValue(Guide.class);
+                            guideArrayList.add(guideInBd);
+
+                        }
+                        ((FireBaseCallBack) activityFromCall).getUpdateFromBD(guideArrayList);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.w(TAG, "validateAndRegister:onCancelled", databaseError.toException());
+                    }
+                });
+
+        progressDialog.dismiss();
+
+    }
+
+    public void getGuidesByMuscle(final String muscle, final ArrayList<Guide> guideArrayList) {
         progressDialog.show();
         final User guideformBd = null;
         List<Guide> listGuides;
@@ -95,7 +127,9 @@ public class FireBasePersister {
                                 dataSnapshot.getChildren()) {
 
                             Guide guideInBd = data.getValue(Guide.class);
-                            guideArrayList.add(guideInBd);
+                            if (guideInBd.getMusculo().equals(muscle)) {
+                                guideArrayList.add(guideInBd);
+                            }
 
                             progressDialog.dismiss();
 

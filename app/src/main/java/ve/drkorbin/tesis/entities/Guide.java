@@ -1,9 +1,11 @@
 package ve.drkorbin.tesis.entities;
 
+import java.io.Serializable;
+
 /**
  * Created by parcka on 19/09/16.
  */
-public class Guide {
+public class Guide implements Serializable {
 
     String titulo;
     String descripcion;

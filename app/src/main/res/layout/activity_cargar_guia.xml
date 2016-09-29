@@ -158,4 +158,24 @@
         android:layout_alignRight="@+id/radioButton3"
         android:layout_alignEnd="@+id/radioButton3" />
 
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton6"
+        android:layout_above="@+id/radioButton2"
+        android:layout_toRightOf="@+id/textView15"
+        android:layout_toEndOf="@+id/textView15"
+        android:checked="false"
+        android:text="Guia Principiante" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guia Avanzada"
+        android:id="@+id/radioButton7"
+        android:layout_below="@+id/radioButton6"
+        android:layout_alignLeft="@+id/radioButton6"
+        android:layout_alignStart="@+id/radioButton6"
+        android:checked="false" />
+
 </RelativeLayout>

@@ -18,4 +18,7 @@ public class RutinaAvanzadaActivity extends AppCompatActivity {
         startActivity(toPrincipaActivity);
 
     }
+
+
+
 }

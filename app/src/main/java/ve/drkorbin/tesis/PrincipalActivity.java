@@ -40,5 +40,10 @@ public class PrincipalActivity extends AppCompatActivity {
 
     }
 
+    public void openAdminPrincipalActivity(View view) {
+        Intent toAdminPrincipalActivity = new Intent(getApplicationContext(), AdminPrincipalActivity.class);
+        startActivity(toAdminPrincipalActivity);
+
+    }
 
 }

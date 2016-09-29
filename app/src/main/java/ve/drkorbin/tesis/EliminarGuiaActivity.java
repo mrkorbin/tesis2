@@ -14,9 +14,11 @@ public class EliminarGuiaActivity extends AppCompatActivity {
     }
 
     public void openAdminPrincipalActivity(View view) {
-        Intent toAdminPrincipalActivity = new Intent(getApplicationContext(), AdminPrincipalActivity.class);
-        startActivity(toAdminPrincipalActivity);
+        Intent openAdminPrincipalActivity = new Intent(getApplicationContext(), AdminPrincipalActivity.class);
+        startActivity(openAdminPrincipalActivity);
 
     }
+
+
 
 }

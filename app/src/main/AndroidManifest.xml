@@ -27,6 +27,11 @@
         <activity android:name=".RutinaPrincipianteActivity" />
         <activity android:name=".RutinaAvanzadaActivity" />
         <activity android:name=".ContactanosActivity" />
+        <activity android:name=".AdminPrincipalActivity" />
+        <activity android:name=".CargarGuiaActivity" />
+        <activity android:name=".EliminarGuiaActivity" />
+        <activity android:name=".EliminarUsuarioActivity" />
+        <activity android:name=".GuideShow" />
     </application>
 
 </manifest>

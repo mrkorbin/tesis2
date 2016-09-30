@@ -32,6 +32,7 @@
         <activity android:name=".EliminarGuiaActivity" />
         <activity android:name=".EliminarUsuarioActivity" />
         <activity android:name=".GuideShow" />
+        <activity android:name=".AdminBuzonActivity"></activity>
     </application>
 
 </manifest>

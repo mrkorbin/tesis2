@@ -14,50 +14,48 @@
         android:layout_height="wrap_content"
         android:text="Cargar Guia"
         android:id="@+id/button14Guia"
+        android:layout_marginTop="44dp"
+        android:onClick="openCargarGuiaActivity"
         android:layout_below="@+id/textView11"
-        android:layout_marginTop="57dp"
-        android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11"
-        android:layout_alignLeft="@+id/button16guia"
-        android:layout_alignStart="@+id/button16guia"
-        android:onClick="openCargarGuiaActivity" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/button17Guia"
+        android:layout_toLeftOf="@+id/button17Guia" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eliminar Guia"
         android:id="@+id/button15Guia"
-        android:layout_below="@+id/button14Guia"
-        android:layout_marginTop="52dp"
-        android:layout_alignLeft="@+id/button16guia"
-        android:layout_alignStart="@+id/button16guia"
-        android:layout_alignRight="@+id/button16guia"
-        android:layout_alignEnd="@+id/button16guia"
-        android:onClick="openEliminarGuiaActivity" />
+        android:onClick="openEliminarGuiaActivity"
+        android:layout_alignTop="@+id/button14Guia"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/button17Guia"
+        android:layout_toRightOf="@+id/button17Guia" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eliminar Usuario"
         android:id="@+id/button16guia"
-        android:layout_below="@+id/button15Guia"
-        android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11"
-        android:layout_marginTop="49dp"
-        android:onClick="openEliminarUsuarioActivity" />
+        android:onClick="openEliminarUsuarioActivity"
+        android:layout_above="@+id/button17Guia"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="100dp"
+        android:layout_toStartOf="@+id/textView11"
+        android:layout_alignRight="@+id/button14Guia"
+        android:layout_alignEnd="@+id/button14Guia" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Salir"
         android:id="@+id/button17Guia"
-        android:layout_below="@+id/button16guia"
-        android:layout_marginTop="52dp"
         android:onClick="openLogActivity"
-        android:layout_alignRight="@+id/button16guia"
-        android:layout_alignEnd="@+id/button16guia"
-        android:layout_alignLeft="@+id/button16guia"
-        android:layout_alignStart="@+id/button16guia" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -66,4 +64,17 @@
         android:id="@+id/textView11"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buzon"
+        android:id="@+id/button24"
+        android:layout_alignTop="@+id/button16guia"
+        android:layout_alignRight="@+id/button15Guia"
+        android:layout_alignEnd="@+id/button15Guia"
+        android:layout_alignLeft="@+id/button15Guia"
+        android:layout_alignStart="@+id/button15Guia"
+        android:onClick="openAdminBuzonActivity" />
+
 </RelativeLayout>

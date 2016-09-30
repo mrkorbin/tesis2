@@ -38,7 +38,11 @@ public class AdminPrincipalActivity extends AppCompatActivity {
 
     }
 
+    public void openAdminBuzonActivity(View view) {
+        Intent openAdminBuzonActivity = new Intent(getApplicationContext(), AdminBuzonActivity.class);
+        startActivity(openAdminBuzonActivity);
 
+    }
 
 
 }

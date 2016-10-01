@@ -36,7 +36,7 @@ public class RutinaPrincipianteActivity extends AppCompatActivity implements Fir
     public void openPrincipalActivity(View view) {
         Intent toPrincipaActivity = new Intent(getApplicationContext(), PrincipalActivity.class);
         startActivity(toPrincipaActivity);
-
+            
     }
 
     @Override

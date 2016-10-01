@@ -1,5 +1,7 @@
 package ve.drkorbin.tesis.persister;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,6 +26,7 @@ import ve.drkorbin.tesis.utils.FireBaseCallBack;
 public class FireBasePersister {
 
     ProgressDialog progressDialog;
+    Dialog alertDialog;
 
     private static final String TAG = FireBasePersister.class.getSimpleName();
     FirebaseDatabase mPostReference;
@@ -93,8 +96,12 @@ public class FireBasePersister {
 
                         for (DataSnapshot data :
                                 dataSnapshot.getChildren()) {
-
-                            Guide guideInBd = data.getValue(Guide.class);
+                            Guide guideInBd = null;
+                            try {
+                                guideInBd = data.getValue(Guide.class);
+                            }catch (Exception e){
+                                Log.e(TAG,"Error parseando el objeto de la BD "+e);
+                            }
                             guideArrayList.add(guideInBd);
 
                         }
@@ -152,7 +159,11 @@ public class FireBasePersister {
 
         DatabaseReference referenceGuidesChild = database.getReference("guides");
         referenceGuidesChild.child(guide.getTitulo()).setValue(guide);
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(activityFromCall);
+        builder.setMessage("Registro Guardado");
+        builder.setTitle("Informacion");
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void setUser(User user) {

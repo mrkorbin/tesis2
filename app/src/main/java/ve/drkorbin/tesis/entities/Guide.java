@@ -11,8 +11,8 @@ public class Guide implements Serializable {
     String descripcion;
     String url;
     String musculo;
-    boolean advanceGuide;
-    boolean basicGuide;
+    Boolean advanceGuide;
+    Boolean basicGuide;
 
     public Guide() {
     }
@@ -56,19 +56,27 @@ public class Guide implements Serializable {
         this.url = url;
     }
 
-    public boolean isAdvanceGuide() {
+  /*  public Boolean isAdvanceGuide() {
         return advanceGuide;
-    }
+    }*/
 
-    public void setAdvanceGuide(boolean advanceGuide) {
+    public void setAdvanceGuide(Boolean advanceGuide) {
         this.advanceGuide = advanceGuide;
     }
 
-    public boolean isBasicGuide() {
+  /*  public Boolean isBasicGuide() {
         return basicGuide;
+    }*/
+
+    public void setBasicGuide(Boolean basicGuide) {
+        this.basicGuide = basicGuide;
     }
 
-    public void setBasicGuide(boolean basicGuide) {
-        this.basicGuide = basicGuide;
+    public Boolean getAdvanceGuide() {
+        return advanceGuide;
+    }
+
+    public Boolean getBasicGuide() {
+        return basicGuide;
     }
 }

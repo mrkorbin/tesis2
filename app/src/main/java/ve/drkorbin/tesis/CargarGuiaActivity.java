@@ -17,9 +17,12 @@ public class CargarGuiaActivity extends AppCompatActivity {
 
     EditText guideDescription;
     EditText urlYoutube;
+    EditText titleGuide;
     String muscleSelected;
     CheckBox checkAdvance;
     CheckBox checkRookie;
+    FireBasePersister fireBasePersister;
+    Guide guideToInsert;
 
 
     @Override
@@ -29,15 +32,16 @@ public class CargarGuiaActivity extends AppCompatActivity {
 
         guideDescription = (EditText) findViewById(R.id.editTextContenidoguia);
         urlYoutube = (EditText) findViewById(R.id.editTextCargarLinkVideo);
+        titleGuide = (EditText) findViewById(R.id.editTextnombreguia);
 
         checkAdvance = (CheckBox) findViewById(R.id.checkBoxGuiaAvanzada);
         checkRookie = (CheckBox) findViewById(R.id.checkBoxGuiaPrincipiante);
 
 
-        FireBasePersister fireBasePersister = new FireBasePersister(this);
+        fireBasePersister = new FireBasePersister(this);
 
-        Guide guideToInsert = createAndSetGuide();
-        fireBasePersister.createGuideInBd(guideToInsert);
+
+
 
 
     }
@@ -47,7 +51,7 @@ public class CargarGuiaActivity extends AppCompatActivity {
         guide.setMusculo(muscleSelected);
         guide.setUrl(urlYoutube.getText().toString());
         guide.setDescripcion(guideDescription.getText().toString());
-        guide.setTitulo("GuidaDesdeAdminTitle");
+        guide.setTitulo(titleGuide.getText().toString());
         setTypeGuideFromCheck(guide);
 
         return guide;
@@ -64,6 +68,13 @@ public class CargarGuiaActivity extends AppCompatActivity {
     public void openAdminPrincipalActivity(View view) {
         Intent toAdminPrincipalActivity = new Intent(getApplicationContext(), AdminPrincipalActivity.class);
         startActivity(toAdminPrincipalActivity);
+
+    }
+
+    public void saveGuideToBd(View view) {
+
+        guideToInsert = createAndSetGuide();
+        fireBasePersister.createGuideInBd(guideToInsert);
 
     }
 

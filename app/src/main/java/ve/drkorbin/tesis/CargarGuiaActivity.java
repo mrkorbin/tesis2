@@ -3,14 +3,62 @@ package ve.drkorbin.tesis;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+
+import ve.drkorbin.tesis.entities.Guide;
+import ve.drkorbin.tesis.entities.MuscleEnum;
+import ve.drkorbin.tesis.persister.FireBasePersister;
 
 public class CargarGuiaActivity extends AppCompatActivity {
+
+    EditText guideDescription;
+    EditText urlYoutube;
+    String muscleSelected;
+    CheckBox checkAdvance;
+    CheckBox checkRookie;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cargar_guia);
+
+        guideDescription = (EditText) findViewById(R.id.editTextContenidoguia);
+        urlYoutube = (EditText) findViewById(R.id.editTextCargarLinkVideo);
+
+        checkAdvance = (CheckBox) findViewById(R.id.checkBoxGuiaAvanzada);
+        checkRookie = (CheckBox) findViewById(R.id.checkBoxGuiaPrincipiante);
+
+
+        FireBasePersister fireBasePersister = new FireBasePersister(this);
+
+        Guide guideToInsert = createAndSetGuide();
+        fireBasePersister.createGuideInBd(guideToInsert);
+
+
+    }
+
+    private Guide createAndSetGuide() {
+        Guide guide = new Guide();
+        guide.setMusculo(muscleSelected);
+        guide.setUrl(urlYoutube.getText().toString());
+        guide.setDescripcion(guideDescription.getText().toString());
+        guide.setTitulo("GuidaDesdeAdminTitle");
+        setTypeGuideFromCheck(guide);
+
+        return guide;
+    }
+
+    private void setTypeGuideFromCheck(Guide guide) {
+        if (checkRookie.isChecked())
+            guide.setAdvanceGuide(true);
+
+        if (checkAdvance.isChecked())
+            guide.setBasicGuide(true);
     }
 
     public void openAdminPrincipalActivity(View view) {
@@ -19,8 +67,38 @@ public class CargarGuiaActivity extends AppCompatActivity {
 
     }
 
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
 
-    //al momento de presionar cargar, se debe mostrar un mensaje indicando que se ha cargado la guia o que ya la misma esta cargada y al salvar se debe volver al meuu de administrador
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.radioButtonBicep:
+                if (checked)
+                    muscleSelected = MuscleEnum.BICEP.getDescripcion();
+                break;
+            case R.id.radioButtonTricep:
+                if (checked)
+                    muscleSelected = MuscleEnum.TRICEP.getDescripcion();
+                break;
+            case R.id.radioButtonCuadriceps:
+                if (checked)
+                    muscleSelected = MuscleEnum.CUADRICEP.getDescripcion();
+                break;
+            case R.id.radioButtonFemoral:
+                if (checked)
+                    muscleSelected = MuscleEnum.FEMORAL.getDescripcion();
+                break;
+            case R.id.radioButtonPectoral:
+                if (checked)
+                    muscleSelected = MuscleEnum.PECTORAL.getDescripcion();
+                break;
+
+        }
+    }
+
+
+    //TODO: al momento de presionar cargar, se debe mostrar un mensaje indicando que se ha cargado la guia o que ya la misma esta cargada y al salvar se debe volver al meuu de administrador
 
 
 }

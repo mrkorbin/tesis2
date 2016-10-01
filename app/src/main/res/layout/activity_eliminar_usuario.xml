@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/logoadmin"
     tools:context="ve.drkorbin.tesis.EliminarUsuarioActivity">
 
     <TextView
@@ -20,22 +21,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingrese el nombre del usuario que desea eliminar"
+        android:text="Indique el usuario que desea eliminar"
         android:id="@+id/textView20"
-        android:layout_marginTop="105dp"
         android:layout_below="@+id/textView19"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText7"
-        android:layout_below="@+id/textView20"
-        android:layout_marginTop="83dp"
-        android:layout_alignRight="@+id/textView20"
-        android:layout_alignEnd="@+id/textView20"
-        android:layout_alignLeft="@+id/textView20"
-        android:layout_alignStart="@+id/textView20" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
 
     <Button
         android:layout_width="wrap_content"

@@ -5,6 +5,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/logoapp"
     tools:context="ve.drkorbin.tesis.RegistroActivity">
 
     <TextView
@@ -114,5 +115,13 @@
         android:layout_alignLeft="@+id/editTextcontrasena"
         android:layout_alignStart="@+id/editTextcontrasena"
         android:gravity="center|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:id="@+id/textView27"
+        android:layout_above="@+id/editTextnombre"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

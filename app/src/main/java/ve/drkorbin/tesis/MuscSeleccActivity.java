@@ -22,6 +22,10 @@ public class MuscSeleccActivity extends AppCompatActivity {
 
 
     public void openMuscIndivActivity(View view) {
+
+
+
+
         Intent toMuscIndivActivity = new Intent(getApplicationContext(), MusculoIndivActivity.class);
         startActivity(toMuscIndivActivity);
 

@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bicep"
-        android:id="@+id/button7"
+        android:id="@+id/buttonBicep"
         android:layout_marginTop="46dp"
         android:onClick="openMuscSeleccActivity"
         android:layout_below="@+id/textView5"
@@ -33,10 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tricep"
-        android:id="@+id/button8"
-        android:layout_alignTop="@+id/button7"
-        android:layout_alignRight="@+id/button10"
-        android:layout_alignEnd="@+id/button10"
+        android:id="@+id/buttonTricep"
+        android:layout_alignTop="@+id/buttonBicep"
+        android:layout_alignRight="@+id/buttonCuadricep"
+        android:layout_alignEnd="@+id/buttonCuadricep"
         android:layout_toRightOf="@+id/button23"
         android:layout_toEndOf="@+id/button23" />
 
@@ -44,20 +44,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gemelos"
-        android:id="@+id/button9"
+        android:id="@+id/buttonGemelos"
         android:layout_marginTop="57dp"
-        android:layout_below="@+id/button7"
+        android:layout_below="@+id/buttonBicep"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button7"
-        android:layout_alignEnd="@+id/button7" />
+        android:layout_alignRight="@+id/buttonBicep"
+        android:layout_alignEnd="@+id/buttonBicep" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cuadricep"
-        android:id="@+id/button10"
-        android:layout_alignTop="@+id/button9"
+        android:id="@+id/buttonCuadricep"
+        android:layout_alignTop="@+id/buttonGemelos"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/button23"
@@ -67,24 +67,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Femoral"
-        android:id="@+id/button11"
-        android:layout_below="@+id/button10"
+        android:id="@+id/buttonFemoral"
+        android:layout_below="@+id/buttonCuadricep"
         android:layout_marginTop="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button9"
-        android:layout_alignEnd="@+id/button9" />
+        android:layout_alignRight="@+id/buttonGemelos"
+        android:layout_alignEnd="@+id/buttonGemelos" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dorsal"
-        android:id="@+id/button22"
-        android:layout_alignBottom="@+id/button11"
-        android:layout_alignRight="@+id/button10"
-        android:layout_alignEnd="@+id/button10"
-        android:layout_alignLeft="@+id/button10"
-        android:layout_alignStart="@+id/button10" />
+        android:id="@+id/buttonDorsal"
+        android:layout_alignBottom="@+id/buttonFemoral"
+        android:layout_alignRight="@+id/buttonCuadricep"
+        android:layout_alignEnd="@+id/buttonCuadricep"
+        android:layout_alignLeft="@+id/buttonCuadricep"
+        android:layout_alignStart="@+id/buttonCuadricep" />
 
     <Button
         android:layout_width="wrap_content"

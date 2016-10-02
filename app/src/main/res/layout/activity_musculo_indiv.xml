@@ -37,6 +37,7 @@
         android:layout_alignTop="@+id/buttonBicep"
         android:layout_alignRight="@+id/buttonCuadricep"
         android:layout_alignEnd="@+id/buttonCuadricep"
+        android:onClick="openMuscSeleccActivity"
         android:layout_toRightOf="@+id/button23"
         android:layout_toEndOf="@+id/button23" />
 
@@ -49,6 +50,7 @@
         android:layout_below="@+id/buttonBicep"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:onClick="openMuscSeleccActivity"
         android:layout_alignRight="@+id/buttonBicep"
         android:layout_alignEnd="@+id/buttonBicep" />
 
@@ -60,6 +62,7 @@
         android:layout_alignTop="@+id/buttonGemelos"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:onClick="openMuscSeleccActivity"
         android:layout_toRightOf="@+id/button23"
         android:layout_toEndOf="@+id/button23" />
 
@@ -71,6 +74,7 @@
         android:layout_below="@+id/buttonCuadricep"
         android:layout_marginTop="50dp"
         android:layout_alignParentLeft="true"
+        android:onClick="openMuscSeleccActivity"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/buttonGemelos"
         android:layout_alignEnd="@+id/buttonGemelos" />
@@ -78,8 +82,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dorsal"
-        android:id="@+id/buttonDorsal"
+        android:text="Pectoral"
+        android:id="@+id/buttonPectoral"
+        android:onClick="openMuscSeleccActivity"
         android:layout_alignBottom="@+id/buttonFemoral"
         android:layout_alignRight="@+id/buttonCuadricep"
         android:layout_alignEnd="@+id/buttonCuadricep"

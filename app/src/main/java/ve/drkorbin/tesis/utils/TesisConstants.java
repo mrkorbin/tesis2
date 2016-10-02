@@ -6,4 +6,5 @@ package ve.drkorbin.tesis.utils;
 public class TesisConstants {
 
     public static final String GUIDE = "guide";
+    public static final String GUIDE_LIST = "guideList";
 }

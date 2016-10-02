@@ -99,8 +99,8 @@ public class FireBasePersister {
                             Guide guideInBd = null;
                             try {
                                 guideInBd = data.getValue(Guide.class);
-                            }catch (Exception e){
-                                Log.e(TAG,"Error parseando el objeto de la BD "+e);
+                            } catch (Exception e) {
+                                Log.e(TAG, "Error parseando el objeto de la BD " + e);
                             }
                             guideArrayList.add(guideInBd);
 
@@ -118,10 +118,9 @@ public class FireBasePersister {
 
     }
 
-    public void getGuidesByMuscle(final String muscle, final ArrayList<Guide> guideArrayList) {
+    public void getGuidesByMuscle(final String muscle) {
         progressDialog.show();
-        final User guideformBd = null;
-        List<Guide> listGuides;
+        final ArrayList<Guide> guideArrayList = new ArrayList<Guide>();
 
         DatabaseReference referenceGuidesChild = database.getReference("guides");
 
@@ -129,19 +128,21 @@ public class FireBasePersister {
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean userFound = false;
+
+                        Guide guideInBd = null;
                         for (DataSnapshot data :
                                 dataSnapshot.getChildren()) {
 
-                            Guide guideInBd = data.getValue(Guide.class);
-                            if (guideInBd.getMusculo().equals(muscle)) {
+                            guideInBd = data.getValue(Guide.class);
+                            if (guideInBd.getMusculo() != null && guideInBd.getMusculo().equals(muscle)) {
                                 guideArrayList.add(guideInBd);
                             }
 
-                            progressDialog.dismiss();
-
                         }
+
+                        ((FireBaseCallBack) activityFromCall).getUpdateFromBD(guideArrayList);
                     }
+
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {

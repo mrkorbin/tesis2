@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import java.util.ArrayList;
@@ -79,6 +80,12 @@ public class RookieGuidesAdapter extends BaseAdapter {
         TextView description = (TextView) v.findViewById(R.id.texto);
         description.setText(guide.getDescripcion());
 
+        ImageView imageViewGuide = (ImageView) v.findViewById(R.id.imageViewItemGuia);
+
+        String urlComplete = "http://img.youtube.com/vi/"+guide.getUrl()+"/0.jpg";
+        Glide.with(activity)
+                .load(urlComplete)
+                .into(imageViewGuide);
         
 
 

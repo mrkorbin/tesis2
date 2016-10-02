@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.youtube.player.YouTubeThumbnailView;
+
 import java.util.ArrayList;
 
 import ve.drkorbin.tesis.R;
@@ -76,6 +78,9 @@ public class RookieGuidesAdapter extends BaseAdapter {
 
         TextView description = (TextView) v.findViewById(R.id.texto);
         description.setText(guide.getDescripcion());
+
+        
+
 
        /* ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
         imagen.setImageDrawable(guide.getImage());*/

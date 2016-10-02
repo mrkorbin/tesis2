@@ -13,183 +13,185 @@
         android:layout_height="match_parent">
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Cargar Guia" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal">
+
+
+                <CheckBox
+                    android:id="@+id/checkBoxGuiaAvanzada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Guia Avanzada" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxGuiaPrincipiante"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:checked="false"
+                    android:text="Guia Principiante" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingrese el Musculo involucrado en la Guia" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="136dp"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButtonBicep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Bicep" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonTricep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Tricep" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonCuadriceps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Cuadriceps" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFemoral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="Femoral" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonPectoral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Pectoral" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Titulo de la Guia" />
+
+                <EditText
+                    android:id="@+id/editTextnombreguia"
+                    android:layout_width="158dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ingrese Contenido de la Guia" />
+
+                <EditText
+                    android:id="@+id/editTextContenidoguia"
+                    android:layout_width="158dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ingrese Link del Video" />
+
+                <EditText
+                    android:id="@+id/editTextCargarLinkVideo"
+                    android:layout_width="158dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:onClick="openAdminPrincipalActivity"
+                    android:text="Atras" />
+
+                <Button
+                    android:id="@+id/button14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="80dp"
+                    android:onClick="saveGuideToBd"
+                    android:text="Cargar" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Cargar Guia" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:orientation="horizontal">
-
-
-            <CheckBox
-                android:id="@+id/checkBoxGuiaAvanzada"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Guia Avanzada" />
-
-            <CheckBox
-                android:id="@+id/checkBoxGuiaPrincipiante"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:checked="false"
-                android:text="Guia Principiante" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ingrese el Musculo involucrado en la Guia" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="136dp"
-            android:layout_height="match_parent">
-
-            <RadioButton
-                android:id="@+id/radioButtonBicep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:onClick="onRadioButtonClicked"
-                android:text="Bicep" />
-
-            <RadioButton
-                android:id="@+id/radioButtonTricep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:onClick="onRadioButtonClicked"
-                android:text="Tricep" />
-
-            <RadioButton
-                android:id="@+id/radioButtonCuadriceps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:onClick="onRadioButtonClicked"
-                android:text="Cuadriceps" />
-
-            <RadioButton
-                android:id="@+id/radioButtonFemoral"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:onClick="onRadioButtonClicked"
-                android:text="Femoral" />
-
-            <RadioButton
-                android:id="@+id/radioButtonPectoral"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Pectoral" />
-        </RadioGroup>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Titulo de la Guia" />
-
-            <EditText
-                android:id="@+id/editTextnombreguia"
-                android:layout_width="158dp"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ingrese Contenido de la Guia" />
-
-            <EditText
-                android:id="@+id/editTextContenidoguia"
-                android:layout_width="158dp"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ingrese Link del Video" />
-
-            <EditText
-                android:id="@+id/editTextCargarLinkVideo"
-                android:layout_width="158dp"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:onClick="openAdminPrincipalActivity"
-                android:text="Atras" />
-
-            <Button
-                android:id="@+id/button14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginLeft="80dp"
-                android:onClick="saveGuideToBd"
-                android:text="Cargar" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
+    
 </LinearLayout>

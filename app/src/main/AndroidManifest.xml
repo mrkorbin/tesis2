@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ve.drkorbin.tesis" >
+    package="ve.drkorbin.tesis">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -38,6 +38,7 @@
         <activity android:name=".EliminarUsuarioActivity" />
         <activity android:name=".GuideShow" />
         <activity android:name=".AdminBuzonActivity" />
+        <activity android:name=".GenericListGuideActivity"></activity>
     </application>
 
 </manifest>

@@ -9,7 +9,9 @@ public enum MuscleEnum {
     TRICEP("Tricep"),
     CUADRICEP("Cuadricep"),
     FEMORAL("Femoral"),
-    PECTORAL("Pectoral");
+    PECTORAL("Pectoral"),
+    ADVANCE_GUIDE("AdvanceGuide"),
+    NEWBIE_GUIDE("NewbieGuide");
 
     private final String descripcion;
 

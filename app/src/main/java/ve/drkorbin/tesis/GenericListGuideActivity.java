@@ -12,11 +12,9 @@ import java.util.ArrayList;
 
 import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.adapters.RookieGuidesAdapter;
-import ve.drkorbin.tesis.persister.FireBasePersister;
-import ve.drkorbin.tesis.utils.FireBaseCallBack;
 import ve.drkorbin.tesis.utils.TesisConstants;
 
-public class GenericListGuideActivity extends AppCompatActivity implements FireBaseCallBack {
+public class GenericListGuideActivity extends AppCompatActivity{
 
     ListView listViewGuides;
     RookieGuidesAdapter adapter;
@@ -52,8 +50,9 @@ public class GenericListGuideActivity extends AppCompatActivity implements FireB
         listViewGuides.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("","SE piso la guia");
                 Guide guide = (Guide) parent.getItemAtPosition(position);
-                Intent intentToGuide = new Intent(getApplicationContext(), GuideShow.class);
+                Intent intentToGuide = new Intent(GenericListGuideActivity.this, GuideShow.class);
                 intentToGuide.putExtra(TesisConstants.GUIDE, guide);
                 startActivity(intentToGuide);
             }
@@ -61,8 +60,4 @@ public class GenericListGuideActivity extends AppCompatActivity implements FireB
 
     }
 
-    @Override
-    public void getUpdateFromBD(Object obj) {
-        Log.d("","pasando por el callback");
-    }
 }

@@ -40,24 +40,7 @@ public class LogActivity extends AppCompatActivity {
 
 
     public void openIngresoActivity(View view) {
-        FireBasePersister fireBasePersister = new FireBasePersister(this);
 
-        Guide guide = new Guide();
-        guide.setTitulo("Prueba titulo");
-        guide.setDescripcion("Prueba Descripcion");
-        guide.setUrl("URL del video");
-        guide.setMusculo("Prueba Musculo");
-
-        fireBasePersister.createGuideInBd(guide);
-
-        Guide guide2 = new Guide();
-        guide2.setTitulo("Prueba titulo2");
-        guide2.setDescripcion("Prueba Descripcion2");
-        guide2.setUrl("URL del video2");
-        guide2.setMusculo("Prueba Musculo2");
-
-
-        fireBasePersister.createGuideInBd(guide2);
         Intent toIngresoActivity = new Intent(getApplicationContext(), IngresoActivity.class);
         startActivity(toIngresoActivity);
 

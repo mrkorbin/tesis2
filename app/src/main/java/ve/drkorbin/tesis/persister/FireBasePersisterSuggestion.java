@@ -14,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.MuscleEnum;
@@ -22,9 +21,9 @@ import ve.drkorbin.tesis.entities.User;
 import ve.drkorbin.tesis.utils.FireBaseCallBack;
 
 /**
- * Created by parcka on 14/09/16.
+ * Created by parcka on 02/10/16.
  */
-public class FireBasePersister {
+public class FireBasePersisterSuggestion {
 
     ProgressDialog progressDialog;
     Dialog alertDialog;
@@ -34,10 +33,10 @@ public class FireBasePersister {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     AppCompatActivity activityFromCall;
 
-    public FireBasePersister() {
+    public FireBasePersisterSuggestion() {
     }
 
-    public FireBasePersister(AppCompatActivity activityFromCall) {
+    public FireBasePersisterSuggestion(AppCompatActivity activityFromCall) {
         this.activityFromCall = activityFromCall;
         progressDialog = new ProgressDialog(activityFromCall);
         progressDialog.setMessage("Cargando...");
@@ -235,6 +234,4 @@ public class FireBasePersister {
         specificUserRef.setValue(user);*/
 
     }
-
-
 }

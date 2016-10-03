@@ -65,29 +65,29 @@ public class FireBasePersisterSuggestion {
                 });
     }
 
-    public void getAllGuides() {
-        final ArrayList<Guide> guideArrayList = new ArrayList<Guide>();
+    public void getAllSuggestion() {
+        final ArrayList<Suggestion> suggestionArrayList = new ArrayList<Suggestion>();
         progressDialog.show();
 
-        DatabaseReference referenceGuidesChild = database.getReference("guides");
+        DatabaseReference referenceGuidesChild = database.getReference("suggestion");
 
-        referenceGuidesChild.addValueEventListener(
+        referenceGuidesChild.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
                         for (DataSnapshot data :
                                 dataSnapshot.getChildren()) {
-                            Guide guideInBd = null;
+                            Suggestion suggestionInBd = null;
                             try {
-                                guideInBd = data.getValue(Guide.class);
+                                suggestionInBd = data.getValue(Suggestion.class);
                             } catch (Exception e) {
                                 Log.e(TAG, "Error parseando el objeto de la BD " + e);
                             }
-                            guideArrayList.add(guideInBd);
+                            suggestionArrayList.add(suggestionInBd);
 
                         }
-                        ((FireBaseCallBack) activityFromCall).getUpdateFromBD(guideArrayList);
+                        ((FireBaseCallBack) activityFromCall).getUpdateFromBD(suggestionArrayList);
                     }
 
                     @Override

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logoapp"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/suggestionEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="fill_vertical|center_horizontal"
+
+        android:text="Email"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#f65034"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/suggestionDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="fill_vertical|center_horizontal"
+
+        android:text="Descripcion" />
+
+
+</LinearLayout>

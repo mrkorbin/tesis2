@@ -50,7 +50,7 @@ public class FireBasePersister {
 
         DatabaseReference referenceUsersChild = database.getReference("users");
 
-        referenceUsersChild.addValueEventListener(
+        referenceUsersChild.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -64,14 +64,18 @@ public class FireBasePersister {
                                 userFound = true;
                             }
 
-                            if (userFound) {
-                                Toast.makeText(activityFromCall, "Usuario en BD", Toast.LENGTH_LONG).show();
-                            } else {
-                                dataSnapshot.getRef().child(user.getUserName()).setValue(user);
-                            }
-                            progressDialog.dismiss();
+
 
                         }
+
+                        if (userFound) {
+                            Toast.makeText(activityFromCall, "Usuario en BD", Toast.LENGTH_LONG).show();
+                        } else {
+                            dataSnapshot.getRef().child(user.getUserName()).setValue(user);
+                            Toast.makeText(activityFromCall, "Usuario Creado", Toast.LENGTH_LONG).show();
+                        }
+                        progressDialog.dismiss();
+
                     }
 
                     @Override
@@ -162,7 +166,7 @@ public class FireBasePersister {
 
         DatabaseReference referenceGuidesChild = database.getReference("guides");
 
-        referenceGuidesChild.addValueEventListener(
+        referenceGuidesChild.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

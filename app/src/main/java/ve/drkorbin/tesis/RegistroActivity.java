@@ -46,11 +46,20 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
     public void singUpUser(View view){
-        User userToRegister = new User(usuario.toString(),nombre.toString(),clave.toString(),correo.toString());
+        User userToRegister = new User(usuario.getText().toString(),nombre.getText().toString(),clave.getText().toString(),correo.getText().toString());
         FireBasePersister fireBasePersister = new FireBasePersister(this);
         fireBasePersister.validateAndRegister(userToRegister);
 
+        clearAllInfo();
 
+
+    }
+
+    private void clearAllInfo() {
+        usuario.setText("");
+        nombre.setText("");
+        clave.setText("");
+        correo.setText("");
     }
 
 //falta mensaje de error por usuario registrado

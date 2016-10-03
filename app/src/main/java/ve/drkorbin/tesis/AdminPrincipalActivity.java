@@ -5,8 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class AdminPrincipalActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+import ve.drkorbin.tesis.entities.Guide;
+import ve.drkorbin.tesis.entities.MuscleEnum;
+import ve.drkorbin.tesis.persister.FireBasePersister;
+import ve.drkorbin.tesis.utils.FireBaseCallBack;
+import ve.drkorbin.tesis.utils.TesisConstants;
+
+public class AdminPrincipalActivity extends AppCompatActivity implements FireBaseCallBack {
+
+    FireBasePersister fireBasePersister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +36,8 @@ public class AdminPrincipalActivity extends AppCompatActivity {
     }
 
     public void openEliminarGuiaActivity(View view) {
-        Intent openEliminarGuiaActivity = new Intent(getApplicationContext(), EliminarGuiaActivity.class);
-        startActivity(openEliminarGuiaActivity);
-
+        fireBasePersister = new FireBasePersister(this);
+        fireBasePersister.getAllGuides();
     }
 
 
@@ -44,5 +53,14 @@ public class AdminPrincipalActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void getUpdateFromBD(Object obj) {
+        ArrayList<Guide> allGuides = new ArrayList<Guide>((List) obj);
+        Intent intentToGenericListGuideActivity = null;
+        intentToGenericListGuideActivity = new Intent(getApplicationContext(), GenericListGuideActivity.class);
 
+        intentToGenericListGuideActivity.putExtra(TesisConstants.GUIDE_LIST, allGuides);
+        intentToGenericListGuideActivity.putExtra(TesisConstants.IS_ADMIN, true);
+        startActivity(intentToGenericListGuideActivity);
+    }
 }

@@ -41,7 +41,7 @@ public class GenericListGuideActivity extends AppCompatActivity {
 
             isAdmin = (boolean) getIntent().getExtras().get(TesisConstants.IS_ADMIN);
         }
-        isAdmin = true; // todo: prueba
+//        isAdmin = true; // todo: prueba
         adapter = new RookieGuidesAdapter(this, allGuides);
         paintGuideList();
 

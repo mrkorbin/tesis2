@@ -1,5 +1,7 @@
 package ve.drkorbin.tesis;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.adapters.RookieGuidesAdapter;
+import ve.drkorbin.tesis.persister.FireBasePersister;
 import ve.drkorbin.tesis.utils.TesisConstants;
 
 public class GenericListGuideActivity extends AppCompatActivity {
@@ -19,6 +22,8 @@ public class GenericListGuideActivity extends AppCompatActivity {
     ListView listViewGuides;
     RookieGuidesAdapter adapter;
     ArrayList<Guide> allGuides;
+    boolean isAdmin;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,12 @@ public class GenericListGuideActivity extends AppCompatActivity {
 
             allGuides = (ArrayList<Guide>) getIntent().getExtras().get(TesisConstants.GUIDE_LIST);
         }
+
+        if (getIntent().getExtras().get(TesisConstants.IS_ADMIN) != null) {
+
+            isAdmin = (boolean) getIntent().getExtras().get(TesisConstants.IS_ADMIN);
+        }
+        isAdmin = true; // todo: prueba
         adapter = new RookieGuidesAdapter(this, allGuides);
         paintGuideList();
 
@@ -57,6 +68,41 @@ public class GenericListGuideActivity extends AppCompatActivity {
                 startActivity(intentToGuide);
             }
         });
+
+        if (isAdmin) {
+
+            listViewGuides.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    final Guide guide = (Guide) parent.getItemAtPosition(position);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(GenericListGuideActivity.this);
+                    builder.setMessage("Desea eliminar la Guia");
+                    builder.setTitle("Informacion");
+                    builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            FireBasePersister fireBasePersister = new FireBasePersister(GenericListGuideActivity.this);
+                            fireBasePersister.deleteGuide(guide);
+
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog = builder.create();
+                    alertDialog.show();
+
+
+                    return false;
+                }
+            });
+
+
+        }
 
 
         listViewGuides.setAdapter(adapter);

@@ -65,7 +65,6 @@ public class FireBasePersister {
                             }
 
 
-
                         }
 
                         if (userFound) {
@@ -123,6 +122,43 @@ public class FireBasePersister {
 
     }
 
+
+    public void searchUser(final User user) {
+
+        progressDialog.show();
+
+        DatabaseReference referenceGuidesChild = database.getReference("users");
+
+        referenceGuidesChild.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        User userFound = null;
+                        for (DataSnapshot data :
+                                dataSnapshot.getChildren()) {
+                            User userInBd = null;
+
+                            userInBd = data.getValue(User.class);
+                            if (userInBd.getUserName().equals(user.getUserName())
+                                    && userInBd.getPassword().equals(user.getPassword())) {
+                                userFound = userInBd;
+                            }
+
+
+                        }
+                        ((FireBaseCallBack) activityFromCall).getUpdateFromBD(userFound);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.w(TAG, "validateAndRegister:onCancelled", databaseError.toException());
+                    }
+                });
+
+        progressDialog.dismiss();
+
+    }
+
     public void getGuidesByMuscle(final String muscle) {
         progressDialog.show();
         final ArrayList<Guide> guideArrayList = new ArrayList<Guide>();
@@ -159,6 +195,42 @@ public class FireBasePersister {
 
     }
 
+    public void deleteGuide(final Guide guide) {
+        progressDialog.show();
+
+
+        DatabaseReference referenceGuidesChild = database.getReference("guides");
+
+        referenceGuidesChild.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        Guide guideInBd = null;
+                        for (DataSnapshot data :
+                                dataSnapshot.getChildren()) {
+
+                            guideInBd = data.getValue(Guide.class);
+                            if (guideInBd.getTitulo() != null && guideInBd.getTitulo().equals(guide.getTitulo())) {
+                                data.getRef().removeValue();
+                                Toast.makeText(activityFromCall, "Guia Eliminada", Toast.LENGTH_LONG).show();
+
+                            }
+
+                        }
+                    }
+
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.w(TAG, "validateAndRegister:onCancelled", databaseError.toException());
+                    }
+                });
+
+        progressDialog.dismiss();
+
+    }
+
     public void getGuidesByLevel(final String level) {
         progressDialog.show();
 
@@ -177,15 +249,15 @@ public class FireBasePersister {
 
                             guideInBd = data.getValue(Guide.class);
 
-                            if(level.equals(MuscleEnum.ADVANCE_GUIDE.getDescripcion())){
+                            if (level.equals(MuscleEnum.ADVANCE_GUIDE.getDescripcion())) {
 
-                                if(guideInBd.getAdvanceGuide()){
+                                if (guideInBd.getAdvanceGuide()) {
                                     guideArrayList.add(guideInBd);
                                 }
 
-                            }else if(level.equals(MuscleEnum.NEWBIE_GUIDE.getDescripcion())){
+                            } else if (level.equals(MuscleEnum.NEWBIE_GUIDE.getDescripcion())) {
 
-                                if(guideInBd.getBasicGuide()){
+                                if (guideInBd.getBasicGuide()) {
                                     guideArrayList.add(guideInBd);
                                 }
 

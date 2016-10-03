@@ -7,4 +7,5 @@ public class TesisConstants {
 
     public static final String GUIDE = "guide";
     public static final String GUIDE_LIST = "guideList";
+    public static final String IS_ADMIN = "isAdmin";
 }

@@ -23,7 +23,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/editTextEmail"
         android:layout_alignBottom="@+id/textView9"
         android:layout_toRightOf="@+id/textView9"
         android:layout_marginLeft="78dp"
@@ -46,10 +46,10 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/editTextMessage"
         android:layout_alignBottom="@+id/textView10"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/editTextEmail"
+        android:layout_alignStart="@+id/editTextEmail" />
 
     <Button
         android:layout_width="wrap_content"
@@ -69,7 +69,8 @@
         android:id="@+id/button13"
         android:layout_alignBottom="@+id/button12"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="registerSuggestion" />
 
     <TextView
         android:layout_width="wrap_content"

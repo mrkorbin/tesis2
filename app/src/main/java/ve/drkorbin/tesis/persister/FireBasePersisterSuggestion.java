@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.MuscleEnum;
+import ve.drkorbin.tesis.entities.Suggestion;
 import ve.drkorbin.tesis.entities.User;
 import ve.drkorbin.tesis.utils.FireBaseCallBack;
 
@@ -43,34 +44,18 @@ public class FireBasePersisterSuggestion {
 
     }
 
-    public User validateAndRegister(final User user) {
+    public void registerSuggestion(final Suggestion suggestion) {
 
-        final User userformBd = null;
+        DatabaseReference referenceUsersChild = database.getReference("suggestion");
 
-        DatabaseReference referenceUsersChild = database.getReference("users");
-
-        referenceUsersChild.addValueEventListener(
+        referenceUsersChild.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         boolean userFound = false;
-                        for (DataSnapshot data :
-                                dataSnapshot.getChildren()) {
-
-                            User userformBd = data.getValue(User.class);
-                            Log.d(TAG, "El usuario enconado" + userformBd.toString());
-                            if (userformBd.getUserName().equals(user.getUserName())) {
-                                userFound = true;
-                            }
-
-                            if (userFound) {
-                                Toast.makeText(activityFromCall, "Usuario en BD", Toast.LENGTH_LONG).show();
-                            } else {
-                                dataSnapshot.getRef().child(user.getUserName()).setValue(user);
-                            }
-                            progressDialog.dismiss();
-
-                        }
+                        DatabaseReference pushRef = dataSnapshot.getRef().push();
+                        pushRef.setValue(suggestion);
+                        Toast.makeText(activityFromCall,"Sugerencia Enviada",Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -78,9 +63,6 @@ public class FireBasePersisterSuggestion {
                         Log.w(TAG, "validateAndRegister:onCancelled", databaseError.toException());
                     }
                 });
-
-
-        return userformBd;
     }
 
     public void getAllGuides() {
@@ -172,15 +154,15 @@ public class FireBasePersisterSuggestion {
 
                             guideInBd = data.getValue(Guide.class);
 
-                            if(level.equals(MuscleEnum.ADVANCE_GUIDE.getDescripcion())){
+                            if (level.equals(MuscleEnum.ADVANCE_GUIDE.getDescripcion())) {
 
-                                if(guideInBd.getAdvanceGuide()){
+                                if (guideInBd.getAdvanceGuide()) {
                                     guideArrayList.add(guideInBd);
                                 }
 
-                            }else if(level.equals(MuscleEnum.NEWBIE_GUIDE.getDescripcion())){
+                            } else if (level.equals(MuscleEnum.NEWBIE_GUIDE.getDescripcion())) {
 
-                                if(guideInBd.getBasicGuide()){
+                                if (guideInBd.getBasicGuide()) {
                                     guideArrayList.add(guideInBd);
                                 }
 
@@ -215,23 +197,4 @@ public class FireBasePersisterSuggestion {
         alertDialog.show();
     }
 
-    public void setUser(User user) {
-        progressDialog.show();
-
-        user = new User();
-        user.setUserName("userName1");
-        user.setFullName("fullName");
-        user.setPassword("11111");
-        user.setEmail("rman@asd.com");
-
-        if (validateAndRegister(user) != null) {
-            System.out.printf("USUARIO YA EXISTE");
-            Log.d("TAG: ", "Usuario ya existe");
-        }
-      /*  DatabaseReference usersReferenceBd = database.getReference("users");
-
-        DatabaseReference specificUserRef = usersReferenceBd.child(user.getUserName());
-        specificUserRef.setValue(user);*/
-
-    }
 }

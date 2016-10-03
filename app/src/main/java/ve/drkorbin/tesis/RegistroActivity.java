@@ -12,10 +12,10 @@ import ve.drkorbin.tesis.persister.FireBasePersister;
 
 public class RegistroActivity extends AppCompatActivity {
 
-        EditText nombre;
-        EditText usuario;
-        EditText clave;
-        EditText correo;
+    EditText nombre;
+    EditText usuario;
+    EditText clave;
+    EditText correo;
     Button registo;
 
     @Override
@@ -23,12 +23,12 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
         //EditText
-        nombre = (EditText)findViewById(R.id.editTextnombre);
-        usuario = (EditText)findViewById(R.id.editTextusuario);
-        clave = (EditText)findViewById(R.id.editTextcontrasena);
-        correo = (EditText)findViewById(R.id.editTextcorreo);
+        nombre = (EditText) findViewById(R.id.editTextnombre);
+        usuario = (EditText) findViewById(R.id.editTextusuario);
+        clave = (EditText) findViewById(R.id.editTextcontrasena);
+        correo = (EditText) findViewById(R.id.editTextcorreo);
         //Boton
-        registo = (Button)findViewById(R.id.buttonregistro);
+        registo = (Button) findViewById(R.id.buttonregistro);
 
     }
 
@@ -45,8 +45,8 @@ public class RegistroActivity extends AppCompatActivity {
 
     }
 
-    public void singUpUser(View view){
-        User userToRegister = new User(usuario.getText().toString(),nombre.getText().toString(),clave.getText().toString(),correo.getText().toString());
+    public void singUpUser(View view) {
+        User userToRegister = new User(usuario.getText().toString(), nombre.getText().toString(), clave.getText().toString(), correo.getText().toString());
         FireBasePersister fireBasePersister = new FireBasePersister(this);
         fireBasePersister.validateAndRegister(userToRegister);
 
@@ -63,7 +63,6 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
 //falta mensaje de error por usuario registrado
-
 
 
 }

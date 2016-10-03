@@ -14,7 +14,7 @@ import ve.drkorbin.tesis.entities.Guide;
 import ve.drkorbin.tesis.entities.adapters.RookieGuidesAdapter;
 import ve.drkorbin.tesis.utils.TesisConstants;
 
-public class GenericListGuideActivity extends AppCompatActivity{
+public class GenericListGuideActivity extends AppCompatActivity {
 
     ListView listViewGuides;
     RookieGuidesAdapter adapter;
@@ -31,7 +31,7 @@ public class GenericListGuideActivity extends AppCompatActivity{
 
             allGuides = (ArrayList<Guide>) getIntent().getExtras().get(TesisConstants.GUIDE_LIST);
         }
-
+        adapter = new RookieGuidesAdapter(this, allGuides);
         paintGuideList();
 
 
@@ -43,20 +43,24 @@ public class GenericListGuideActivity extends AppCompatActivity{
 
     }
 
-    private void paintGuideList(){
+    private void paintGuideList() {
         listViewGuides = (ListView) findViewById(R.id.listViewGuides);
-        adapter = new RookieGuidesAdapter(this, allGuides);
-        listViewGuides.setAdapter(adapter);
+
+
         listViewGuides.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("","SE piso la guia");
+                Log.e("error en el click", "SE piso la guia");
                 Guide guide = (Guide) parent.getItemAtPosition(position);
                 Intent intentToGuide = new Intent(GenericListGuideActivity.this, GuideShow.class);
                 intentToGuide.putExtra(TesisConstants.GUIDE, guide);
                 startActivity(intentToGuide);
             }
         });
+
+
+        listViewGuides.setAdapter(adapter);
+
 
     }
 

@@ -122,6 +122,41 @@ public class FireBasePersister {
 
     }
 
+    public void getAllUser() {
+        final ArrayList<User> userArrayList = new ArrayList<User>();
+        progressDialog.show();
+
+        DatabaseReference referenceGuidesChild = database.getReference("users");
+
+        referenceGuidesChild.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot data :
+                                dataSnapshot.getChildren()) {
+                            User userInBd = null;
+                            try {
+                                userInBd = data.getValue(User.class);
+                            } catch (Exception e) {
+                                Log.e(TAG, "Error parseando el objeto de la BD " + e);
+                            }
+                            userArrayList.add(userInBd);
+
+                        }
+                        ((FireBaseCallBack) activityFromCall).getUpdateFromBD(userArrayList);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.w(TAG, "validateAndRegister:onCancelled", databaseError.toException());
+                    }
+                });
+
+        progressDialog.dismiss();
+
+    }
+
 
     public void searchUser(final User user) {
 
@@ -214,6 +249,42 @@ public class FireBasePersister {
                             if (guideInBd.getTitulo() != null && guideInBd.getTitulo().equals(guide.getTitulo())) {
                                 data.getRef().removeValue();
                                 Toast.makeText(activityFromCall, "Guia Eliminada", Toast.LENGTH_LONG).show();
+
+                            }
+
+                        }
+                    }
+
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.w(TAG, "validateAndRegister:onCancelled", databaseError.toException());
+                    }
+                });
+
+        progressDialog.dismiss();
+
+    }
+
+    public void deleteUser(final User user) {
+        progressDialog.show();
+
+
+        DatabaseReference referenceGuidesChild = database.getReference("users");
+
+        referenceGuidesChild.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        User userInBd = null;
+                        for (DataSnapshot data :
+                                dataSnapshot.getChildren()) {
+
+                            userInBd = data.getValue(User.class);
+                            if (userInBd.getUserName() != null && userInBd.getUserName().equals(user.getUserName())) {
+                                data.getRef().removeValue();
+                                Toast.makeText(activityFromCall, "Usuario Eliminada", Toast.LENGTH_LONG).show();
 
                             }
 
